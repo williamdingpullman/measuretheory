@@ -73,6 +73,7 @@
 <li class="chapter" data-level="1.1" data-path="measure-spaces.html"><a href="measure-spaces.html#measure"><i class="fa fa-check"></i><b>1.1</b> Measure</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="measure-spaces.html"><a href="measure-spaces.html#sigma-fields"><i class="fa fa-check"></i><b>1.1.1</b> <span class="math inline">\(\sigma\)</span>-Fields</a></li>
 <li class="chapter" data-level="1.1.2" data-path="measure-spaces.html"><a href="measure-spaces.html#measures-formal-definition"><i class="fa fa-check"></i><b>1.1.2</b> Measures: Formal Definition</a></li>
+<li class="chapter" data-level="1.1.3" data-path="measure-spaces.html"><a href="measure-spaces.html#distribution-functions"><i class="fa fa-check"></i><b>1.1.3</b> Distribution Functions</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -152,6 +153,61 @@
 </div>
 <div id="measures-formal-definition" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Measures: Formal Definition</h3>
+<p><strong>Definition 4</strong></p>
+<p>A measure space (<span class="math inline">\(\Omega, \mathcal{F}, \mu\)</span>) is a triple, consisting of an underlying set <span class="math inline">\(\Omega\)</span>, a <span class="math inline">\(\sigma\)</span>-field <span class="math inline">\(\mathcal{F}\)</span>, and a function <span class="math inline">\(\mu\)</span>, which is called “the measure” with domain <span class="math inline">\(\mathcal{F}\)</span> and satisfying the following:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(0 \leq \mu(A) \leq \infty\)</span> for all <span class="math inline">\(A \in \mathcal{F}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mu(\emptyset)=0\)</span></p></li>
+<li><p>If <span class="math inline">\(A_1, A_2,...\)</span> is a sequence of disjoint elements of <span class="math inline">\(\mathcal{F}\)</span> (i.e., <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for all <span class="math inline">\(i \neq j\)</span>), then,</p></li>
+</ol>
+<p><span class="math display">\[\mu(\cup_{i=1}^\infty A_i)=\sum_{i=1}^\infty \mu(A_i)\]</span></p>
+<p>A probability space is a measure space (<span class="math inline">\(\Omega, \mathcal{F}, P\)</span>) for which <span class="math inline">\(P(\Omega)=1\)</span>. (note, it replaces <span class="math inline">\(\mu\)</span> with <span class="math inline">\(P\)</span>). A measure on (<span class="math inline">\(\mathbb{R}, \mathcal{B}\)</span>) is called a Borel measure.</p>
+<p>In probability theory, disjoint events are usually called mutually exclusive.</p>
+<p><strong>Remarks 3</strong></p>
+<p>Note that <span class="math inline">\(\mu(A)=\infty\)</span> is possible (unless <span class="math inline">\(A=\emptyset\)</span>). In order for (iii) to make sure, we must know how to do arithmetic with <span class="math inline">\(\infty\)</span>. For now, it suffices to know</p>
+<p><span class="math display">\[\infty+x=\infty \; for \; x \in \mathbb{R}\]</span> <span class="math display">\[\infty+\infty=\infty\]</span></p>
+<p>Thus, if in (iii) in the Definition 4, <span class="math inline">\(\mu(A_i)=\infty\)</span> for some <span class="math inline">\(j\)</span>, then <span class="math inline">\(\sum_i \mu(A_i)=\infty\)</span>. Of course, <span class="math inline">\(\sum_i \mu(A_i)\)</span> may equal to <span class="math inline">\(\infty\)</span> even if all <span class="math inline">\(\mu(A_i) &lt; \infty\)</span>.</p>
+<p>We will also need to know some multiplication rules for <span class="math inline">\(\infty\)</span> as well:</p>
+<p><span class="math display">\[a \cdot \infty=\infty, for \; all \; a&gt;0\]</span></p>
+<p><span class="math display">\[0 \cdot \infty = 0\]</span></p>
+<p><strong>Example 1.1.3</strong></p>
+<p>Let (<span class="math inline">\(\Omega, \mathcal{F}\)</span>) be any measurable space. Let <span class="math inline">\(A \in \mathcal {F}\)</span> and define th measure #(A)=the number of elements of A. If A is an infinite set, then of course #(A) =<span class="math inline">\(\infty\)</span>. It is fairly easy to check that (<span class="math inline">\(\Omega, \mathcal{F}\)</span>, #) is a measure space, based upon the Definition 4.</p>
+<p><strong>Example 1.1.4</strong></p>
+<p>A special kind of measure is often useful is the unit point mass at <span class="math inline">\(x\)</span>. Given a measurable space (<span class="math inline">\(\Omega, \mathcal{F}\)</span>) and <span class="math inline">\(x \in \Omega\)</span>, put</p>
+<p><span class="math display">\[\delta_x(A)=\begin{cases} 1 &amp; if \; x \in  A \\ 0 &amp; if x  \notin  A \end{cases}\]</span></p>
+<p>It is easy to check that <span class="math inline">\(\delta_x\)</span> is a probability measure on (<span class="math inline">\(\Omega, \mathcal{F}\)</span>).</p>
+<p>Note that counting measure on {<span class="math inline">\(x_1, x_2,...\)</span>} may be written in terms of unit point masses as follows. Thus, the sum o fmeasures is a measure.</p>
+<p><span class="math display">\[\# =\sum_i \delta_{x_i}\]</span></p>
+<p><strong>Theorem 1.1.3 (Existence of Lebesgue Measure)</strong></p>
+<p>There is a unique Borel measure <span class="math inline">\(m\)</span> satisfying</p>
+<p><span class="math display">\[m([a,b])=b-a\]</span></p>
+<p>for every finite closed interval <span class="math inline">\([a,b]\)</span>, <span class="math inline">\(-\infty&lt;a&lt;b&lt; \infty\)</span></p>
+<p>Thinking of Lebesgue measure as a “mass distribution”, we see that it is a continuous distribution of mass which is “concentrated” on a line (the real line) and assigns one unit of mass per length.</p>
+<p><strong>Proposition 1.1.4 (Basic Properties of Measures)</strong></p>
+<p>Within a measure space (<span class="math inline">\(\Omega, \mathcal{F}, \mu\)</span>), we can get</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Monotonicity: <span class="math inline">\(A \in B\)</span> implies <span class="math inline">\(\mu(A) \leq \mu(B)\)</span>, assuming <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are in <span class="math inline">\(\mathcal{F}\)</span>.</p></li>
+<li><p>Subadditivity: If <span class="math inline">\(A_1, A_2,...\)</span> is any sequence of measurable sets, then</p></li>
+</ol>
+<p><span class="math display">\[\mu(\cup A_i) \leq \sum \mu (A_i)\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>If <span class="math inline">\(A_1, A_2,...\)</span> is a decreasing sequence of measurable sets (i.e., <span class="math inline">\(A_1 \supset A_2 \subset ...\)</span>), and if <span class="math inline">\(\mu(A_1) &lt; \infty\)</span>, then</li>
+</ol>
+<p><span class="math display">\[\mu(\cap_{i=1}^\infty A_i)=lim_{i \rightarrow\infty} \mu(A_i)\]</span></p>
+<p><strong>Proposition 1.1.5</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Let <span class="math inline">\(\mu_1, \mu_2,...\)</span> be a finite or infinite sequence of measures on (<span class="math inline">\(\Omega, \mathcal{F}\)</span>). Suppose <span class="math inline">\(a_1, a_2,...\)</span> are nonnegative real numbers. Then <span class="math inline">\(\mu=\sum_i a_i \mu_i\)</span> is a measure on (<span class="math inline">\(\Omega, \mathcal{F}\)</span>).</p></li>
+<li><p>Consider the same setup as in part (a). If each of the <span class="math inline">\(\mu_i\)</span> is a probability measure and if <span class="math inline">\(\sum_i a_i =1\)</span>, then <span class="math inline">\(\mu\)</span> is a probability measure.</p></li>
+<li><p>Let <span class="math inline">\(\mu\)</span> be a measrue on (<span class="math inline">\(\Omega, \mathcal{F}\)</span>)and let <span class="math inline">\(A \in \mathcal{F}\)</span>. Define <span class="math inline">\(v(B)=\mu(B \cap A)\)</span> for all <span class="math inline">\(B \in \mathcal{F}\)</span>. Then, <span class="math inline">\(v\)</span> is a measure on (<span class="math inline">\(\Omega, \mathcal{F}\)</span>).</p></li>
+</ol>
+</div>
+<div id="distribution-functions" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Distribution Functions</h3>
+<p>If <span class="math inline">\(P\)</span> is a probability measure (<span class="math inline">\(p.m.\)</span>) on (<span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(\mathcal{B}\)</span>), i.e., a Borel <span class="math inline">\(p.m.\)</span>, then we can define</p>
+<p><span class="math display">\[F(x)=P((-\infty, x])\]</span></p>
+<p>for all <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span>. <span class="math inline">\(F\)</span> is called the (cumulative) distribution fucntion (c.d.f.) for <span class="math inline">\(P\)</span>.</p>
+<p><strong>Note:</strong> Sometimes a probability measure itself is referred t obe a distribution. In this text, we will never use “distribution” without the word “function” to refer to <span class="math inline">\(c.d.f.\)</span> Note that the probability measure and the <span class="math inline">\(c.d.c.\)</span> are two different kinds of objects. One maps Borel sets to real numbers and the ohter maps real numbers to real numbers.</p>
+<p><strong>Theorem 1.1.5</strong></p>
 
 </div>
 </div>
@@ -217,7 +273,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

@@ -83,3 +83,100 @@ The elements of $\mathcal{B}$ are called Borel sets.
 
 ### Measures: Formal Definition
 
+__Definition 4__
+
+A measure space ($\Omega, \mathcal{F}, \mu$) is a triple, consisting of an underlying set $\Omega$, a $\sigma$-field $\mathcal{F}$, and a function $\mu$, which is called "the measure" with domain $\mathcal{F}$ and satisfying the following:
+
+(i) $0 \leq \mu(A) \leq \infty$ for all $A \in \mathcal{F}$.
+
+(ii) $\mu(\emptyset)=0$
+
+(iii) If $A_1, A_2,...$ is a sequence of disjoint elements of $\mathcal{F}$ (i.e., $A_i \cap A_j = \emptyset$ for all $i \neq j$), then,
+
+$$\mu(\cup_{i=1}^\infty A_i)=\sum_{i=1}^\infty \mu(A_i)$$
+
+
+A probability space is a measure space ($\Omega, \mathcal{F}, P$) for which $P(\Omega)=1$. (note, it replaces $\mu$ with $P$). A measure on ($\mathbb{R}, \mathcal{B}$) is called a Borel measure.
+
+
+In probability theory, disjoint events are usually called mutually exclusive. 
+
+__Remarks 3__
+
+Note that $\mu(A)=\infty$ is possible (unless $A=\emptyset$). In order for (iii) to make sure, we must know how to do arithmetic with $\infty$. For now, it suffices to know
+
+$$\infty+x=\infty \; for \; x \in \mathbb{R}$$
+$$\infty+\infty=\infty$$
+
+Thus, if in (iii) in the Definition 4, $\mu(A_i)=\infty$ for some $j$, then $\sum_i \mu(A_i)=\infty$. Of course, $\sum_i \mu(A_i)$ may equal to $\infty$ even if all $\mu(A_i) < \infty$.
+
+We will also need to know some multiplication rules for $\infty$ as well:
+
+$$a \cdot \infty=\infty, for \; all \; a>0$$
+
+$$0 \cdot \infty = 0$$
+
+
+__Example 1.1.3__
+
+Let ($\Omega, \mathcal{F}$) be any measurable space. Let $A \in \mathcal {F}$ and define th measure #(A)=the number of elements of A. If A is an infinite set, then of course #(A) =$\infty$. It is fairly easy to check that ($\Omega, \mathcal{F}$, #) is a measure space, based upon the Definition 4.
+
+__Example 1.1.4__
+
+A special kind of measure is often useful is the unit point mass at $x$. Given a measurable space  ($\Omega, \mathcal{F}$) and $x \in \Omega$, put
+
+$$\delta_x(A)=\begin{cases} 1 & if \; x \in  A \\ 0 & if x  \notin  A \end{cases}$$
+
+It is easy to check that $\delta_x$ is a probability measure on ($\Omega, \mathcal{F}$).
+
+Note that counting measure on {$x_1, x_2,...$} may be written in terms of unit point masses as follows. Thus, the sum o fmeasures is a measure.
+
+$$\# =\sum_i \delta_{x_i}$$
+
+
+__Theorem 1.1.3 (Existence of Lebesgue Measure)__
+
+There is a unique Borel measure $m$ satisfying 
+
+$$m([a,b])=b-a$$
+
+for every finite closed interval $[a,b]$, $-\infty<a<b< \infty$
+
+Thinking of Lebesgue measure as a "mass distribution", we see that it is a continuous distribution of mass which is "concentrated" on a line (the real line) and assigns one unit of mass per length.
+
+__Proposition 1.1.4 (Basic Properties of Measures)__
+
+Within a measure space ($\Omega, \mathcal{F}, \mu$), we can get 
+
+(a) Monotonicity: $A \in B$ implies $\mu(A) \leq \mu(B)$, assuming $A$ and $B$ are in $\mathcal{F}$.
+
+(b) Subadditivity: If $A_1, A_2,...$ is any sequence of measurable sets, then 
+
+$$\mu(\cup A_i) \leq \sum \mu (A_i)$$
+
+(c) If $A_1, A_2,...$ is a decreasing sequence of measurable sets (i.e., $A_1 \supset A_2 \subset ...$), and if $\mu(A_1) < \infty$, then 
+
+$$\mu(\cap_{i=1}^\infty A_i)=lim_{i \rightarrow\infty} \mu(A_i)$$
+
+
+__Proposition 1.1.5__
+
+(a) Let $\mu_1, \mu_2,...$ be a finite or infinite sequence of measures on ($\Omega, \mathcal{F}$). Suppose $a_1, a_2,...$ are nonnegative real numbers. Then $\mu=\sum_i a_i \mu_i$ is a measure on ($\Omega, \mathcal{F}$).
+
+(b) Consider the same setup as in part (a). If each of the $\mu_i$ is a probability measure and if $\sum_i a_i =1$, then $\mu$ is a probability measure.
+
+(c) Let $\mu$ be a measrue on ($\Omega, \mathcal{F}$)and let $A \in \mathcal{F}$. Define $v(B)=\mu(B \cap A)$ for all $B \in \mathcal{F}$. Then, $v$ is a measure on ($\Omega, \mathcal{F}$).
+
+### Distribution Functions
+
+If $P$ is a probability measure ($p.m.$) on ($\mathbb{R}$, $\mathcal{B}$), i.e., a Borel $p.m.$, then we can define
+
+$$F(x)=P((-\infty, x])$$
+
+for all $-\infty < x < \infty$. $F$ is called the (cumulative) distribution fucntion (c.d.f.) for $P$.
+
+__Note:__  Sometimes a probability measure itself is referred t obe a distribution. In this text, we will never use "distribution" without the word "function" to refer to $c.d.f.$ Note that the probability measure and the $c.d.c.$ are two different kinds of objects. One maps Borel sets to real numbers and the ohter maps real numbers to real numbers. 
+
+__Theorem 1.1.5__
+
+

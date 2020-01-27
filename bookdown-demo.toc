@@ -1,5 +1,6 @@
-\contentsline {chapter}{Motivation}{5}{chapter*.2}% 
-\contentsline {chapter}{\numberline {1}Measure Spaces}{7}{chapter.1}% 
-\contentsline {section}{\numberline {1.1}Measure}{7}{section.1.1}% 
-\contentsline {subsection}{\numberline {1.1.1}\(\sigma \)-Fields}{8}{subsection.1.1.1}% 
-\contentsline {subsection}{\numberline {1.1.2}Measures: Formal Definition}{9}{subsection.1.1.2}% 
+\contentsline {chapter}{Motivation}{5}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Measure Spaces}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Measure}{7}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}\(\sigma \)-Fields}{8}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Measures: Formal Definition}{10}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Distribution Functions}{12}{subsection.1.1.3}%
