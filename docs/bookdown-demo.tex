@@ -102,8 +102,43 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
+\hypertarget{measure-spaces}{%
+\chapter{Measure Spaces}\label{measure-spaces}}
+
+\hypertarget{sigma-fields}{%
+\section{\texorpdfstring{\(\sigma\)-Fields}{\textbackslash{}sigma-Fields}}\label{sigma-fields}}
+
+Let \(\mathcal{F}\) be a collection of subsets of a set \(\Omega\). Then, \(F\) is called a sigma field (or, sigma algebra; written as \(\sigma\)-field or \(\sigma\)-algebra) if and only if it satisfies the following properties:
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\item
+  The empty set \(\emptyset \in \mathcal{F}\).
+\item
+  If \(A \in \mathcal{F}\), then the complement \(A^c \in \mathcal{F}\).
+\item
+  If \(A_1, A_2,...\) is a sof elements of \(\mathcal{F}\), then their union \(\cup_{i=1}^\infty A_i \in \mathcal{F}\).
+\end{enumerate}
+
+A pair (\(\Omega, \mathcal{F}\)) consisting of a set \(\Omega\) and a \(\sigma-field\) of subsets \(\mathcal{F}\) is called a measurable space. The elements of \(\mathcal{F}\) are called measurable sets or events.
+
+\textbf{Remarks}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  The set \(\Omega\) is called sample space in probability, but in general measure theory it is called the underlying set or underlying space.
+\item
+  Since \(\emptyset^c=\Omega\), it follows (i) and (ii) \(\Omega \in \mathcal{F}\).
+\item
+  Given any set \(\Omega\), the trivial \(\sigma\)-field is \(\mathcal{F}=\{ \emptyset, \Omega\}\). One can easily verify that this is a \(\sigma\)-field, and is in fact the smallest \(\sigma\)-field on \(\Omega\).
+\item
+  Given any set \(\Omega\), the power set:
+\end{enumerate}
+
+\[\mathcal{P}(\Omega)=\{A: A \in \Omega\}\]
+
+Consisting of all subsets of \(\Omega\) is also a \(\sigma\)-field on \(\Omega\)
 
 \bibliography{book.bib,packages.bib}
 

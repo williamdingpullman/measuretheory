@@ -11,5 +11,34 @@ github-repo: rstudio/bookdown-demo
 description: "The webpages are mainly about measure theory."
 ---
 
-# Prerequisites
+# Measure Spaces
+
+## $\sigma$-Fields
+
+Let $\mathcal{F}$ be a collection of subsets of a set $\Omega$. Then, $F$ is called a sigma field (or, sigma algebra; written as $\sigma$-field or $\sigma$-algebra) if and only if it satisfies the following properties:
+
+(i) The empty set $\emptyset \in \mathcal{F}$.
+
+(ii) If $A \in \mathcal{F}$, then the complement $A^c \in \mathcal{F}$.
+
+(iii) If $A_1, A_2,...$ is a sof elements of $\mathcal{F}$, then their union $\cup_{i=1}^\infty A_i \in \mathcal{F}$.
+
+A pair ($\Omega, \mathcal{F}$) consisting of a set $\Omega$ and a $\sigma-field$ of subsets $\mathcal{F}$ is called a measurable space. The elements of $\mathcal{F}$ are called measurable sets or events. 
+
+__Remarks__
+
+(1) The set $\Omega$ is called sample space in probability, but in general measure theory it is called the underlying set or underlying space.
+
+(2) Since $\emptyset^c=\Omega$, it follows (i) and (ii) $\Omega \in \mathcal{F}$.
+
+(3) Given any set $\Omega$, the trivial $\sigma$-field is $\mathcal{F}=\{ \emptyset, \Omega\}$. One can easily verify that this is a $\sigma$-field, and is in fact the smallest $\sigma$-field on $\Omega$.
+
+(4) Given any set $\Omega$, the power set:
+
+$$\mathcal{P}(\Omega)=\{A: A \in \Omega\}$$
+
+Consisting of all subsets of $\Omega$ is also a $\sigma$-field on $\Omega$
+
+
+
 

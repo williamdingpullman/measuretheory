@@ -68,7 +68,9 @@
 <li><a href="https://williamdingpullman.github.io/" target="blank">Bill's Stats Notes</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="#prerequisites"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#measure-spaces"><i class="fa fa-check"></i><b>1</b> Measure Spaces</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#sigma-fields"><i class="fa fa-check"></i><b>1.1</b> <span class="math inline">\(\sigma\)</span>-Fields</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
 
@@ -94,9 +96,28 @@
 <p class="author"><em>Bill Last Updated:</em></p>
 <p class="date"><em>27 January, 2020</em></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
+<div id="measure-spaces" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Measure Spaces</h1>
+<div id="sigma-fields" class="section level2">
+<h2><span class="header-section-number">1.1</span> <span class="math inline">\(\sigma\)</span>-Fields</h2>
+<p>Let <span class="math inline">\(\mathcal{F}\)</span> be a collection of subsets of a set <span class="math inline">\(\Omega\)</span>. Then, <span class="math inline">\(F\)</span> is called a sigma field (or, sigma algebra; written as <span class="math inline">\(\sigma\)</span>-field or <span class="math inline">\(\sigma\)</span>-algebra) if and only if it satisfies the following properties:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>The empty set <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A \in \mathcal{F}\)</span>, then the complement <span class="math inline">\(A^c \in \mathcal{F}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A_1, A_2,...\)</span> is a sof elements of <span class="math inline">\(\mathcal{F}\)</span>, then their union <span class="math inline">\(\cup_{i=1}^\infty A_i \in \mathcal{F}\)</span>.</p></li>
+</ol>
+<p>A pair (<span class="math inline">\(\Omega, \mathcal{F}\)</span>) consisting of a set <span class="math inline">\(\Omega\)</span> and a <span class="math inline">\(\sigma-field\)</span> of subsets <span class="math inline">\(\mathcal{F}\)</span> is called a measurable space. The elements of <span class="math inline">\(\mathcal{F}\)</span> are called measurable sets or events.</p>
+<p><strong>Remarks</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The set <span class="math inline">\(\Omega\)</span> is called sample space in probability, but in general measure theory it is called the underlying set or underlying space.</p></li>
+<li><p>Since <span class="math inline">\(\emptyset^c=\Omega\)</span>, it follows (i) and (ii) <span class="math inline">\(\Omega \in \mathcal{F}\)</span>.</p></li>
+<li><p>Given any set <span class="math inline">\(\Omega\)</span>, the trivial <span class="math inline">\(\sigma\)</span>-field is <span class="math inline">\(\mathcal{F}=\{ \emptyset, \Omega\}\)</span>. One can easily verify that this is a <span class="math inline">\(\sigma\)</span>-field, and is in fact the smallest <span class="math inline">\(\sigma\)</span>-field on <span class="math inline">\(\Omega\)</span>.</p></li>
+<li><p>Given any set <span class="math inline">\(\Omega\)</span>, the power set:</p></li>
+</ol>
+<p><span class="math display">\[\mathcal{P}(\Omega)=\{A: A \in \Omega\}\]</span></p>
+<p>Consisting of all subsets of <span class="math inline">\(\Omega\)</span> is also a <span class="math inline">\(\sigma\)</span>-field on <span class="math inline">\(\Omega\)</span></p>
 
+</div>
 </div>
             </section>
 
@@ -154,6 +175,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
