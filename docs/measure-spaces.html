@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Measure Spaces | Measure Theory</title>
+  <meta name="description" content="The webpages are mainly about measure theory." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Measure Spaces | Measure Theory" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The webpages are mainly about measure theory." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Measure Spaces | Measure Theory" />
+  
+  <meta name="twitter:description" content="The webpages are mainly about measure theory." />
+  
+
+<meta name="author" content="Bill Last Updated:" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://williamdingpullman.github.io/" target="blank">Bill's Stats Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="measure-spaces.html"><a href="measure-spaces.html"><i class="fa fa-check"></i><b>1</b> Measure Spaces</a><ul>
+<li class="chapter" data-level="1.1" data-path="measure-spaces.html"><a href="measure-spaces.html#measure"><i class="fa fa-check"></i><b>1.1</b> Measure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="measure-spaces.html"><a href="measure-spaces.html#sigma-fields"><i class="fa fa-check"></i><b>1.1.1</b> <span class="math inline">\(\sigma\)</span>-Fields</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Measure Theory</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="measure-spaces" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Measure Spaces</h1>
+<div id="measure" class="section level2">
+<h2><span class="header-section-number">1.1</span> Measure</h2>
+<p>A measure is a function <span class="math inline">\(\mu\)</span> defined for certain subsets <span class="math inline">\(A\)</span> of a set <span class="math inline">\(\Omega\)</span> which assigns a nonnegative number <span class="math inline">\(\mu(A)\)</span> to each “measurable” set <span class="math inline">\(A\)</span>. In probability theory, the probability is a measure, denoted by <span class="math inline">\(P\)</span> instead of <span class="math inline">\(\mu\)</span>, which satisfies <span class="math inline">\(P(\Omega)=1\)</span>. In the context of probablity theory, the subset <span class="math inline">\(A\)</span> is called an event, and <span class="math inline">\(\Omega\)</span> is called the sample space.</p>
+<p><strong>Example</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>A die with 6 faces. Thus, the sample space <span class="math inline">\(\Omega\)</span> is the finite set of integers <span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span> corresponding to the possible outcomes if we roll the die once and count the number of spots on the fact that turns up. We define a probablity measure <span class="math inline">\(P\)</span> hese events by <span class="math inline">\(P(A)=Count(A)/6\)</span>.</p></li>
+<li><p>Let a random number be chosen in the interval <span class="math inline">\([0,1]\)</span> such that the probability of the number lying in any subinterval <span class="math inline">\([a,b] (0 \leq a &lt; b \leq 1)\)</span> is the length (i.ee., <span class="math inline">\(P([a,b])=b-a\)</span>). Thus, here <span class="math inline">\(\Omega=[0,1]\)</span>. Such a random number is said to be uniformly distributed on the interval <span class="math inline">\([0,1]\)</span>. We can extend the probability measure <span class="math inline">\(P\)</span> from closed intervals to other subsets of <span class="math inline">\([0,1]\)</span> (e.g., <span class="math inline">\(P((a,b))=P([a,b))=P((a,b])=P([a,b])=b-a\)</span>). Also, if <span class="math inline">\([a_1,b_1],[a_2,b_2],...\)</span> is a finite or infinite sequence of disjoint closed intervals (one can also allow open or semi-open intervals), then we can get <span class="math inline">\(P(\cup_i[a_i,b_i])=\sum_i(b_i-a_i)\)</span>.(It turns out for technical reasons that in this case, one cannot define probability measure of all subsets of <span class="math inline">\([0,1]\)</span>.)</p></li>
+</ol>
+<p>The probability measure of this example is related to a (nonprobability) measure: Let <span class="math inline">\(\mu=m\)</span> be a measure on arbitrary intervals of real numbers which equals the length of the interval, i.e., <span class="math inline">\(m((a,b))=b-a\)</span> for any open interval <span class="math inline">\((a,b),a&lt;b\)</span>, and similarly for the other varieties of intervals. Here, <span class="math inline">\(\Omega=\mathbb{R}\)</span>, the set of all real numbers, also denoted <span class="math inline">\((-\infty, \infty)\)</span>. This measure <span class="math inline">\(m\)</span> is called Lebesgue measure.</p>
+<div id="sigma-fields" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> <span class="math inline">\(\sigma\)</span>-Fields</h3>
+<p><strong>Definition 1</strong></p>
+<p>Let <span class="math inline">\(\mathcal{F}\)</span> be a collection of subsets of a set <span class="math inline">\(\Omega\)</span>. Then, <span class="math inline">\(F\)</span> is called a sigma field (or, sigma algebra; written as <span class="math inline">\(\sigma\)</span>-field or <span class="math inline">\(\sigma\)</span>-algebra) if and only if it satisfies the following properties:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>The empty set <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A \in \mathcal{F}\)</span>, then the complement <span class="math inline">\(A^c \in \mathcal{F}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A_1, A_2,...\)</span> is a sof elements of <span class="math inline">\(\mathcal{F}\)</span>, then their union <span class="math inline">\(\cup_{i=1}^\infty A_i \in \mathcal{F}\)</span>.</p></li>
+</ol>
+<p>A pair (<span class="math inline">\(\Omega, \mathcal{F}\)</span>) consisting of a set <span class="math inline">\(\Omega\)</span> and a <span class="math inline">\(\sigma-field\)</span> of subsets <span class="math inline">\(\mathcal{F}\)</span> is called a measurable space. The elements of <span class="math inline">\(\mathcal{F}\)</span> are called measurable sets or events.</p>
+<p><strong>Remarks 1</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The set <span class="math inline">\(\Omega\)</span> is called sample space in probability, but in general measure theory it is called the underlying set or underlying space.</p></li>
+<li><p>Since <span class="math inline">\(\emptyset^c=\Omega\)</span>, it follows (i) and (ii) <span class="math inline">\(\Omega \in \mathcal{F}\)</span>.</p></li>
+<li><p>Given any set <span class="math inline">\(\Omega\)</span>, the trivial <span class="math inline">\(\sigma\)</span>-field is <span class="math inline">\(\mathcal{F}=\{ \emptyset, \Omega\}\)</span>. One can easily verify that this is a <span class="math inline">\(\sigma\)</span>-field, and is in fact the smallest <span class="math inline">\(\sigma\)</span>-field on <span class="math inline">\(\Omega\)</span>.</p></li>
+<li><p>Given any set <span class="math inline">\(\Omega\)</span>, the power set:</p></li>
+</ol>
+<p><span class="math display">\[\mathcal{P}(\Omega)=\{A: A \in \Omega\}\]</span></p>
+<p>Consisting of all subsets of <span class="math inline">\(\Omega\)</span> is also a <span class="math inline">\(\sigma\)</span>-field on <span class="math inline">\(\Omega\)</span>, and in fact is the largest <span class="math inline">\(\sigma\)</span>-field on <span class="math inline">\(\Omega\)</span> (Note: in some text, people denote <span class="math inline">\(\mathcal{P}(\Omega)\)</span> by <span class="math inline">\(2^\Omega\)</span>).</p>
+<ol start="5" style="list-style-type: decimal">
+<li>It follows from the definition that if <span class="math inline">\(\mathcal{F}\)</span> is a <span class="math inline">\(\sigma\)</span>-field and <span class="math inline">\(A_1, A_1,...\)</span> is a sequence in <span class="math inline">\(\mathcal{F}\)</span>, then the intersection <span class="math inline">\(\cap_{i=1}^\infty A_i \in \mathcal{F}\)</span>.</li>
+</ol>
+<p><strong>Remarks 2</strong></p>
+<ol style="list-style-type: decimal">
+<li>A set <span class="math inline">\(A\)</span> is called countable it can be listed as a sequence, finite, or infinite:</li>
+</ol>
+<p><span class="math display">\[A=\{a_1, a_2,...\}\]</span></p>
+<p>We shall sometimes say that a set is countably infito indicate that it is countable but not finite.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Any set which can be put in one to one correspondence with a subset of the natural numbers or “counting numbers” <span class="math inline">\(\mathcal{N}={1,2,3...}\)</span> is called countable.</p></li>
+<li><p>The set of all real numbers <span class="math inline">\(\mathbb{R}\)</span> (including irrational numbers like <span class="math inline">\(\sqrt{2}\)</span>, <span class="math inline">\(\pi\)</span>, <span class="math inline">\(e\)</span>) can not put into a one to one correspondence with the natural numbers, so it has “more” elements, and is said to be uncountably infinite. These issues are pertinent to the technical difficulties wich make it impossible to extend Lebesgue measure to all subsets of <span class="math inline">\(\mathbb{R}\)</span>, and hence require us to consider the notion of a <span class="math inline">\(\sigma\)</span>-field (rather than just defining a measure on all subsets of the underlying space).</p></li>
+</ol>
+<p>It takes a certain amount of work to obtain <span class="math inline">\(\sigma\)</span>-field other than the trivial <span class="math inline">\(\sigma\)</span>-field (i.e., <span class="math inline">\(\{\emptyset, \Omega\}\)</span>) or the power set (i.e., <span class="math inline">\(\mathcal{P}(\Omega)=\{A: A \in \Omega\}\)</span>). A standard approach is to consider the smallest <span class="math inline">\(\sigma\)</span>-field containing a given family of sets. We shall illusrtate this concept. Let <span class="math inline">\(A \in \Omega\)</span> be a nonempty proper subset of <span class="math inline">\(\Omega\)</span> (i.e., <span class="math inline">\(\emptyset \neq A \neq \Omega\)</span>), then</p>
+<p><span class="math display">\[\sigma(A)=\{\emptyset, A, A^c, \Omega\}\]</span></p>
+<p>is a <span class="math inline">\(\sigma\)</span>-algebra (or, <span class="math inline">\(\sigma\)</span>-field).</p>
+<p><strong>Example</strong></p>
+<p>If <span class="math inline">\(\emptyset \neq B \neq \Omega\)</span>, <span class="math inline">\(A\cap B \neq \emptyset\)</span>, and neither <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> is a subset of the other, then one can obtain a <span class="math inline">\(\sigma\)</span>-fied <span class="math inline">\(\sigma(\{A, B\})\)</span> consisting of 16 element (i.e., <span class="math inline">\(2^4=16\)</span>).</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

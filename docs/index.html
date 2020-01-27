@@ -31,7 +31,7 @@
   
   
 
-
+<link rel="next" href="measure-spaces.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -68,7 +68,12 @@
 <li><a href="https://williamdingpullman.github.io/" target="blank">Bill's Stats Notes</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="#prerequisites"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="measure-spaces.html"><a href="measure-spaces.html"><i class="fa fa-check"></i><b>1</b> Measure Spaces</a><ul>
+<li class="chapter" data-level="1.1" data-path="measure-spaces.html"><a href="measure-spaces.html#measure"><i class="fa fa-check"></i><b>1.1</b> Measure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="measure-spaces.html"><a href="measure-spaces.html#sigma-fields"><i class="fa fa-check"></i><b>1.1.1</b> <span class="math inline">\(\sigma\)</span>-Fields</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
 
@@ -94,9 +99,9 @@
 <p class="author"><em>Bill Last Updated:</em></p>
 <p class="date"><em>27 January, 2020</em></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-
+<div id="my-section" class="section level1 unnumbered">
+<h1>Motivation</h1>
+<p>Based on Dr. Dennis Cox’s “The Theory of Statistics and Its Applications,” I made the note for personal study purpose using RMarkdown and being posted in Github. All copyright belongs to Dr. Cox, and thus please do not copy, download, or distribute under any circumstance.</p>
 </div>
             </section>
 
@@ -104,7 +109,7 @@
         </div>
       </div>
 
-
+<a href="measure-spaces.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -154,6 +159,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

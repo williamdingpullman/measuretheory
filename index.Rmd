@@ -10,6 +10,74 @@ biblio-style: apalike
 github-repo: rstudio/bookdown-demo
 description: "The webpages are mainly about measure theory."
 ---
+# Motivation {-#my-section}
 
-# Prerequisites
+Based on Dr. Dennis Cox's "The Theory of Statistics and Its Applications," I made the note for personal study purpose using RMarkdown and being posted in Github. All copyright belongs to Dr. Cox, and thus please do not copy, download, or distribute under any circumstance. 
 
+# Measure Spaces
+
+## Measure
+
+A measure is a function $\mu$ defined for certain subsets $A$ of a set $\Omega$ which assigns a nonnegative number $\mu(A)$ to each "measurable" set $A$. In probability theory, the probability is a measure, denoted by $P$ instead of $\mu$, which satisfies $P(\Omega)=1$. In the context of probablity theory, the subset $A$ is called an event, and $\Omega$ is called the sample space. 
+
+__Example__
+
+(1) A die with 6 faces. Thus, the sample space $\Omega$ is the finite set of integers $\{1, 2, 3, 4, 5, 6\}$ corresponding to the possible outcomes if we roll the die once and count the number of spots on the fact that turns up. We define a probablity measure $P$ hese events by $P(A)=Count(A)/6$.
+
+(2) Let a random number be chosen in the interval $[0,1]$ such that the probability of the number lying in any subinterval $[a,b] (0 \leq a < b \leq 1)$ is the length (i.ee., $P([a,b])=b-a$). Thus, here $\Omega=[0,1]$. Such a random number is said to be uniformly distributed on the interval $[0,1]$. We can extend the probability measure $P$ from closed intervals to other subsets of $[0,1]$ (e.g., $P((a,b))=P([a,b))=P((a,b])=P([a,b])=b-a$). Also, if $[a_1,b_1],[a_2,b_2],...$ is a finite or infinite sequence of disjoint closed intervals (one can also allow open or semi-open intervals), then we can get $P(\cup_i[a_i,b_i])=\sum_i(b_i-a_i)$.(It turns out for technical reasons that in this case, one cannot define probability measure of all subsets of $[0,1]$.) 
+
+The probability measure of this example is related to a (nonprobability) measure: Let $\mu=m$ be a measure on arbitrary intervals of real numbers which equals the length of the interval, i.e., $m((a,b))=b-a$ for any open interval $(a,b),a<b$, and similarly for the other varieties of intervals. Here, $\Omega=\mathbb{R}$, the set of all real numbers, also denoted $(-\infty, \infty)$. This measure $m$ is called Lebesgue measure. 
+
+### $\sigma$-Fields
+
+__Definition 1__
+
+Let $\mathcal{F}$ be a collection of subsets of a set $\Omega$. Then, $F$ is called a sigma field (or, sigma algebra; written as $\sigma$-field or $\sigma$-algebra) if and only if it satisfies the following properties:
+
+(i) The empty set $\emptyset \in \mathcal{F}$.
+
+(ii) If $A \in \mathcal{F}$, then the complement $A^c \in \mathcal{F}$.
+
+(iii) If $A_1, A_2,...$ is a sof elements of $\mathcal{F}$, then their union $\cup_{i=1}^\infty A_i \in \mathcal{F}$.
+
+A pair ($\Omega, \mathcal{F}$) consisting of a set $\Omega$ and a $\sigma-field$ of subsets $\mathcal{F}$ is called a measurable space. The elements of $\mathcal{F}$ are called measurable sets or events. 
+
+__Remarks 1__
+
+(1) The set $\Omega$ is called sample space in probability, but in general measure theory it is called the underlying set or underlying space.
+
+(2) Since $\emptyset^c=\Omega$, it follows (i) and (ii) $\Omega \in \mathcal{F}$.
+
+(3) Given any set $\Omega$, the trivial $\sigma$-field is $\mathcal{F}=\{ \emptyset, \Omega\}$. One can easily verify that this is a $\sigma$-field, and is in fact the smallest $\sigma$-field on $\Omega$.
+
+(4) Given any set $\Omega$, the power set:
+
+$$\mathcal{P}(\Omega)=\{A: A \in \Omega\}$$
+
+Consisting of all subsets of $\Omega$ is also a $\sigma$-field on $\Omega$, and in fact is the largest $\sigma$-field on $\Omega$ (Note: in some text, people denote $\mathcal{P}(\Omega)$ by $2^\Omega$).
+
+(5) It follows from the definition that if $\mathcal{F}$ is a $\sigma$-field and $A_1, A_1,...$ is a sequence in $\mathcal{F}$, then the intersection $\cap_{i=1}^\infty A_i \in \mathcal{F}$.
+
+
+__Remarks 2__
+
+(1) A set $A$ is called countable it can be listed as a sequence, finite, or infinite:
+
+$$A=\{a_1, a_2,...\}$$
+
+We shall sometimes say that a set is countably infito indicate that it is countable but not finite. 
+
+(2) Any set which can be put in one to one correspondence with a subset of the natural numbers or "counting numbers" $\mathcal{N}={1,2,3...}$ is called countable. 
+
+(3) The set of all real numbers $\mathbb{R}$ (including irrational numbers like $\sqrt{2}$, $\pi$, $e$) can not put into a one to one correspondence with the natural numbers, so it has "more" elements, and is said to be uncountably infinite. These issues are pertinent to the technical difficulties wich make it impossible to extend Lebesgue measure to all subsets of $\mathbb{R}$, and hence require us to consider the notion of a $\sigma$-field (rather than just defining a measure on all subsets of the underlying space).
+
+
+It takes a certain amount of work to obtain $\sigma$-field other than the trivial $\sigma$-field (i.e., $\{\emptyset, \Omega\}$) or the power set (i.e., $\mathcal{P}(\Omega)=\{A: A \in \Omega\}$). A standard approach is to consider the smallest $\sigma$-field containing a given family of sets. We shall illusrtate this concept. Let $A \in \Omega$ be a nonempty proper subset of $\Omega$ (i.e., $\emptyset \neq A \neq \Omega$), then
+
+$$\sigma(A)=\{\emptyset, A, A^c, \Omega\}$$
+
+is a $\sigma$-algebra (or, $\sigma$-field). 
+
+__Example__
+
+If $\emptyset \neq B \neq \Omega$, $A\cap B \neq \emptyset$, and neither $A$ or $B$ is a subset of the other, then one can obtain a $\sigma$-fied $\sigma(\{A, B\})$ consisting of 16 element (i.e., $2^4=16$). 
